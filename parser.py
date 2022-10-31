@@ -2,12 +2,12 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-import database
-from config import HEADERS, Profession
+import tools.database as database
+from tools.config import settings, Profession
 
 
 def get_soup(url: str) -> BeautifulSoup:
-    req = requests.get(url, headers=HEADERS)
+    req = requests.get(url, headers=settings.headers)
     return BeautifulSoup(req.text, "lxml")
 
 
